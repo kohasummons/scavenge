@@ -1,0 +1,24 @@
+{
+  "name": "billa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Making Making it easy to get paid.",
+  "main": "index.js",
+  "scripts": {
+    "start:ui": "pnpm --filter ui dev",
+    "start": "pnpm run start:ui",
+    "build": "pnpm recursive run build",
+    "test": "pnpm recursive run test"
+  },
+  "keywords": [
+    "payments",
+    "wallets",
+    "Web3"
+  ],
+  "author": "Joshua Omobola <Omobolathejoshua@gmail.com> (https://koha.wtf)",
+  "license": "ISC",
+  "dependencies": {
+    "@web3icons/core": "^3.14.0",
+    "@web3icons/react": "^3.14.0"
+  }
+}
