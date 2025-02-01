@@ -94,7 +94,7 @@ const ClaimUsername = () => {
               type="button"
               className="bg-white rounded-lg  w-full p-3 shadow-md shadow-shadow-color space-y-1"
             >
-              <span className="flex gap-1 items-center pb-2 border-b border-[#F2F2F2]">
+              <span className="flex gap-1 items-center pb-2 border-b border-b-border-primary">
                 <Globe size="24" />
                 <span>Pay Online</span>
               </span>

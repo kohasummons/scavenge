@@ -13,7 +13,9 @@ export default {
         foreground: "var(--foreground)",
         black: "#1F1F1F",
         gray: "var(--gray)",
+        "gray-primary": "#6F6F6F",
         border: "var(--border)",
+        "border-primary": "#F2F2F2",
         "shadow-color": "#8080801A",
       },
       fontFamily: {
