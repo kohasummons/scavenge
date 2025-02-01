@@ -3,7 +3,7 @@ import Link from "next/link";
 // Icons
 import { BillaIcon } from "@/components/icons";
 
-export default function CreateLayout({
+export default function ClaimUsernameLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ export default function CreateLayout({
         </footer>
       </nav>
 
-      <div className="w-full px-5 md:px-0 md:h-full overflow-scroll scrollable-box pt-40 md:pt-0 md:-ml-[5%]">
+      <div className="w-full px-5 md:px-0 md:h-full overflow-scroll scrollable-box md:-ml-[5%]">
         {children}
       </div>
 
