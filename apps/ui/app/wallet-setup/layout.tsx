@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+// Component
+import CustomLayout from "@/components/CustomLayout";
+
 // Icons
 import { BillaIcon } from "@/components/icons";
 
@@ -25,9 +28,7 @@ export default function WalletSetupLayout({
         </footer>
       </nav>
 
-      <div className="w-full px-5 md:px-0 md:h-full overflow-scroll scrollable-box pt-40 md:pt-0 md:-ml-[5%]">
-        {children}
-      </div>
+      <CustomLayout>{children}</CustomLayout>
 
       <footer className="text-center text-xs text-gray md:hidden w-full">
         <p>Terms and Conditions</p>

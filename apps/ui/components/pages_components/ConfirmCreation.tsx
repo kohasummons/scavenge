@@ -61,10 +61,10 @@ const ConfirmCreation = () => {
   };
 
   return (
-    <div className="relative h-full overflow-hidden">
+    <div className="relative h-full overflow-hidden -ml-[5%]">
       {/* Content */}
       <div
-        className="space-y-36 md:w-[341px] w-full mx-auto md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 
+        className="space-y-20 md:w-[341px] w-full mx-auto md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 
 md:-translate-y-1/2 md:transform text-center"
       >
         <span className="inline-block bg-black py-2 px-3 rounded-3xl text-white mx-auto ">
@@ -193,6 +193,15 @@ md:-translate-y-1/2 md:transform text-center"
           </div>
         </div>
       </div>
+
+      <Image
+        src={`/Images/cheers_icon.svg`}
+        width={500}
+        height={230}
+        alt="Cheers Icon"
+        className="absolute 
+      bottom-10 left-1/2 -translate-x-1/2 transform z-50 hidden md:block"
+      />
     </div>
   );
 };
