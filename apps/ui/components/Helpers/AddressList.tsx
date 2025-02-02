@@ -5,14 +5,7 @@ import { truncateAddress } from "@/lib/utils";
 
 // Icons
 import { Copy, CaretDown } from "@phosphor-icons/react/dist/ssr";
-import {
-  WalletMetamask,
-  TokenBTC,
-  TokenETH,
-  TokenTON,
-  WalletCoinbase,
-  WalletPhantom,
-} from "@web3icons/react";
+import { TokenBTC } from "@web3icons/react";
 
 interface AddressListProps {
   addresses: WalletAddress[];
