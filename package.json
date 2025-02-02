@@ -16,9 +16,5 @@
     "Web3"
   ],
   "author": "Joshua Omobola <Omobolathejoshua@gmail.com> (https://koha.wtf)",
-  "license": "ISC",
-  "dependencies": {
-    "@web3icons/core": "^3.14.0",
-    "@web3icons/react": "^3.14.0"
-  }
+  "license": "ISC"
 }
