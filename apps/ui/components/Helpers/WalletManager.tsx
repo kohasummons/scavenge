@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import type { RootState } from "@/store/store";
-import { updateWalletName } from "@/store/walletSlice";
 import AddressInput from "./AddressInput";
 import AddressList from "./AddressList";
 
@@ -14,7 +13,6 @@ interface WalletManagerProps {
 }
 
 export default function WalletManager({ handleClose }: WalletManagerProps) {
-  const dispatch = useDispatch();
   const { currentWallet, tokens } = useSelector(
     (state: RootState) => state.wallet
   );

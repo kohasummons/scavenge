@@ -5,8 +5,6 @@ import { useDispatch } from "react-redux";
 import type { Token, WalletAddress } from "@/types/wallet";
 import { addWalletAddress } from "@/store/walletSlice";
 
-import { CaretDown } from "@phosphor-icons/react/dist/ssr";
-
 interface AddressInputProps {
   tokens: Token[];
   onSave?: () => void;
