@@ -1,8 +1,9 @@
 // Components
-import LandingPageComponent from '@/components/pages_components/Landing'
+
+import LandingPageComponent from "@/components/pages_components/Landing";
 
 export default function Home() {
-  return <LandingPageComponent />
+  return <LandingPageComponent />;
 }
 
 // import { truncateAddress } from '@/lib/utils'

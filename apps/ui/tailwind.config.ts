@@ -17,6 +17,7 @@ export default {
         border: "var(--border)",
         "border-primary": "#F2F2F2",
         "shadow-color": "#8080801A",
+        orange: "#F5841F",
       },
       fontFamily: {
         giest: ["var(--font-geist-sans)"],
