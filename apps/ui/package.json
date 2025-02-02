@@ -11,7 +11,7 @@
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
     "@web3icons/core": "^3.14.0",
-    "@web3icons/react": "^3.14.0",
+    "@web3icons/react": "^3.16.0",
     "clsx": "^2.1.1",
     "motion": "^11.17.0",
     "next": "15.1.4",
