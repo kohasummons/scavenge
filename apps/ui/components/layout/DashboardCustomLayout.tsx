@@ -19,7 +19,7 @@ const DashboardCustomLayout = ({ children }: { children: React.ReactNode }) => {
       icon: <User size={20} className="text-gray" />,
     },
     {
-      name: `Wallets`,
+      name: `wallets`,
       icon: <Wallet size={20} className="text-gray" />,
     },
     {
@@ -28,7 +28,7 @@ const DashboardCustomLayout = ({ children }: { children: React.ReactNode }) => {
     },
   ];
   return (
-    <section className="pt-14 relative">
+    <section className="lg:pt-10 xl:pt-14 pt-24 relative">
       <nav className="bg-[#F1F1F1] rounded-3xl max-w-[355px] p-2 mx-auto flex items-center justify-between">
         {navItems.map((item, index) => (
           <Link
@@ -44,7 +44,7 @@ const DashboardCustomLayout = ({ children }: { children: React.ReactNode }) => {
         ))}
       </nav>
 
-      <div className="w-12 h-10 rounded-3xl bg-white flex items-center justify-center absolute top-16 right-20">
+      <div className="w-12 h-10 rounded-3xl bg-white flex items-center justify-center absolute top-5 md:right-60 lg:top-12 xl:top-16 right-44">
         <Bell size={25} className="text[#6F6F6F]" />
       </div>
 

@@ -47,7 +47,7 @@ export default function UserLayout({
         </footer>
       </nav>
 
-      <div className="lg:w-[85%] xl:w-[88%]"> {children}</div>
+      <div className="lg:w-[85%] xl:w-[88%] w-full"> {children}</div>
     </section>
   );
 }
