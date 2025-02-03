@@ -1,7 +1,9 @@
+import DashboardCustomLayout from "@/components/layout/DashboardCustomLayout";
+
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <section>{children}</section>;
+  return <DashboardCustomLayout>{children}</DashboardCustomLayout>;
 }

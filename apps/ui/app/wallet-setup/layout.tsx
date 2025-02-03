@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 // Component
-import CustomLayout from "@/components/CustomLayout";
+import CustomLayout from "@/components/layout/CustomLayout";
 
 // Icons
 import { BillaIcon } from "@/components/icons";
