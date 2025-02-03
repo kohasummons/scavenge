@@ -53,7 +53,7 @@ const initialWallet = {
 const WalletSetup = () => {
   const router = useRouter();
   const handleSubmit = () => {
-    router.push("/confirm-creation");
+    router.push("/welcome");
   };
   // Get username from localStorage on component mount
   const [showAddModal, setShowAddModal] = useState(false);
@@ -84,7 +84,7 @@ const WalletSetup = () => {
         }`}
       >
         {/* Content */}
-        <div className="space-y-14 md:w-3/5 lg:w-2/5 w-full h-full mx-auto overflow-scroll scrollable-box md:pt-20 pb-10 ">
+        <div className="space-y-14 md:w-3/5 lg:w-1/3 w-full h-full mx-auto overflow-scroll scrollable-box md:pt-20 pb-10 ">
           {/* Header */}
           <div className="space-y-7 text-center">
             <span className="inline-block bg-black py-2 px-3 rounded-3xl text-white mx-auto ">
@@ -195,9 +195,9 @@ const WalletSetup = () => {
             whileHover={{ scale: 1.1 }} // Scale effect on hover
             whileTap={{ scale: 0.95 }} // Slight shrink on click
             transition={{ type: "spring", stiffness: 300 }} // Smooth spring effect
+            onClick={handleSubmit}
           >
             <span
-              onClick={handleSubmit}
               className="bg-black shadow-md shadow-[#8080801A] min-h-[60px] rounded-[40px] min-w-[175px]
                    text-white gradient-border block"
             >

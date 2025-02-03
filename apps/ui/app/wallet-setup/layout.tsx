@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 // Component
-import CustomLayout from "@/components/CustomLayout";
+import CustomLayout from "@/components/layout/CustomLayout";
 
 // Icons
 import { BillaIcon } from "@/components/icons";
@@ -12,7 +12,7 @@ export default function WalletSetupLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex flex-col gap-14 md:flex-row items-start md:h-screen">
+    <section className="flex flex-col gap-14 md:flex-row items-start md:h-screen ">
       <nav
         className="md:h-full md:overflow-hidden w-full md:w-1/4 lg:w-[15%] 2xl:w-[12%] border-r border-r-border 
           md:px-7 md:pt-14 p-5 fixed z-50 bg-background md:relative border-b border-b-border"

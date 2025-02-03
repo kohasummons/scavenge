@@ -13,7 +13,7 @@ import {
 const ClaimUsername = () => {
   // Get username from localStorage on component mount
   const savedUsername =
-    typeof window !== "undefined" ? localStorage.getItem("link") : "/itxbo";
+    typeof window !== "undefined" ? localStorage.getItem("link") : "itxbo";
 
   return (
     <div className="relative h-full overflow-hidden">
