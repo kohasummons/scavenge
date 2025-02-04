@@ -19,7 +19,7 @@ const ClaimUsername = () => {
     <div className="relative h-full overflow-hidden">
       <Link
         href={`/wallet-setup`}
-        className="absolute right-0 md:right-14 top-28 md:top-14 font-medium"
+        className="absolute right-0 md:right-14 top-28 md:top-14 font-semibold"
       >
         Continue and pay later
       </Link>
@@ -56,7 +56,7 @@ const ClaimUsername = () => {
         {/* Payment options */}
         <div className="space-y-10">
           <div className="space-y-2">
-            <p className="font-medium">Pay with Wallet</p>
+            <p className="font-semibold">Pay with Wallet</p>
 
             <button
               type="button"
@@ -88,7 +88,7 @@ const ClaimUsername = () => {
           </div>
 
           <div className="space-y-2">
-            <p className="font-medium">Pay Oniline</p>
+            <p className="font-semibold">Pay Oniline</p>
 
             <button
               type="button"

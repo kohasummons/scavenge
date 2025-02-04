@@ -141,7 +141,7 @@ md:-translate-y-1/2 md:transform text-center"
                 {imageUrl ? (
                   " "
                 ) : (
-                  <span className="text-white text-[64px] font-medium opacity-50">
+                  <span className="text-white text-[64px] font-semibold opacity-50">
                     W
                   </span>
                 )}
@@ -192,7 +192,7 @@ md:-translate-y-1/2 md:transform text-center"
             >
               <span
                 className="bg-black shadow-md shadow-[#8080801A] min-h-[60px] w-full rounded-[40px] 
-                   text-white gradient-border block"
+                   text-white gradient-border flex items-center justify-center"
               >
                 Let&apos;s go
               </span>

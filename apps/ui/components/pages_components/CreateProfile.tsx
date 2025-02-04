@@ -168,7 +168,7 @@ const CreateProfileComponent = () => {
             >
               <span
                 className="bg-black shadow-md shadow-[#8080801A] min-h-[60px] w-full rounded-[40px] 
-                   text-white gradient-border block"
+                   text-white gradient-border flex items-center justify-center"
               >
                 {submitText}
               </span>

@@ -23,11 +23,11 @@ export default function WalletManager({ handleClose }: WalletManagerProps) {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 md:max-w-lg w-[95%] mx-auto">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-medium text-gray-900">Wallet Name</h2>
+        <h2 className="text-xl font-semibold text-gray-900">Wallet Name</h2>
         <div className="space-x-2">
           <button
             onClick={handleClose}
-            className={`px-4 py-2 font-medium text-sm hover:text-gray-800 bg-background rounded-3xl ${
+            className={`px-4 py-2 font-semibold text-sm hover:text-gray-800 bg-background rounded-3xl ${
               isEditing ? "opacity-30" : ""
             }`}
           >
@@ -35,7 +35,7 @@ export default function WalletManager({ handleClose }: WalletManagerProps) {
           </button>
           <button
             onClick={() => setIsEditing(false)}
-            className={`px-4 py-2 bg-orange text-white font-medium text-sm rounded-3xl hover:bg-orange-600 ${
+            className={`px-4 py-2 bg-orange text-white font-semibold text-sm rounded-3xl hover:bg-orange-600 ${
               isEditing ? "opacity-30" : ""
             }`}
           >
@@ -54,7 +54,7 @@ export default function WalletManager({ handleClose }: WalletManagerProps) {
             <button
               onClick={() => setIsEditing(true)}
               type="button"
-              className="bg-background rounded-3xl py-1 px-2 text-sm font-medium flex gap-2 items-center"
+              className="bg-background rounded-3xl py-1 px-2 text-sm font-semibold flex gap-2 items-center"
             >
               <Plus size={15} />
               Add

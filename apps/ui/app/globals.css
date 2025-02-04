@@ -33,39 +33,16 @@ li {
 }
 
 .gradient-border {
-  position: relative;
-  text-align: center;
-  line-height: 60px;
-  cursor: pointer;
-  box-shadow: 0px 0px 16px 0px #80808099;
-
-  border: none; /* Remove default border */
-  z-index: 1;
-}
-
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 42px; /* Slightly larger than button */
-  padding: 2px;
-  background: linear-gradient(0deg, #ecaa04 0%, rgba(236, 93, 4, 0.3) 100%);
-  -webkit-mask: linear-gradient(black, black) content-box,
-    linear-gradient(black, black);
-  mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: -1;
-}
-
-.gradient-border:hover::before {
-  filter: brightness(1.2);
+  border: 1px solid transparent;
+  background: linear-gradient(#151515, #151515) padding-box,
+    linear-gradient(0deg, #ecaa04 0%, rgba(236, 93, 4, 0.3) 100%) border-box;
 }
 
 .shadow {
   box-shadow: 0px -8px 32px 8px #ffc10766 inset;
   z-index: 20;
+}
+
+.drag-shadow {
+  box-shadow: 0px 15px 28px -20px #ecaa04;
 }

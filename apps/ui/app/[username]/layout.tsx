@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BillaIcon } from "@/components/icons";
 
 // Icons
-import { GearSix, CaretDown } from "@phosphor-icons/react/dist/ssr";
+import { GearSix, CaretDown, Bell } from "@phosphor-icons/react/dist/ssr";
 
 export default function UserLayout({
   children,
@@ -18,14 +18,22 @@ export default function UserLayout({
       {/* Sidebar */}
       <nav
         className="lg:w-[15%] xl:w-[12%] lg:h-screen flex items-center justify-between lg:block lg:overflow-hidden
-       xl:py-10 lg:py-8 py-5 lg:px-5 px-3 md:px-5 fixed top-0 lg:border-r lg:border-r-border border-b border-b-border lg:relative w-full"
+       xl:py-10 lg:py-8 py-5 bg-background z-50 lg:px-5 px-3 md:px-5 fixed top-0 lg:border-r 
+       lg:border-r-border border-b border-b-border lg:relative w-full"
       >
         <Link href={`/`} className="text-center ">
           <BillaIcon width={100} height={40} />
         </Link>
 
         {/* Sidebar footer */}
-        <footer className="lg:absolute xl:bottom-10 lg:bottom-8 flex lg:block gap-3 items-center font-medium lg:space-y-3 lg:w-full lg:left-1/2 lg:-translate-x-1/2 lg:px-5">
+        <footer
+          className="lg:absolute xl:bottom-10 lg:bottom-8 flex lg:block gap-3 items-center
+         font-semibold lg:space-y-3 lg:w-full lg:left-1/2 lg:-translate-x-1/2 lg:px-5"
+        >
+          <div className="w-12 h-12 lg:hidden rounded-3xl flex items-center justify-center ">
+            <Bell size={25} className="text[#6F6F6F]" />
+          </div>
+
           <Link
             href={`/${savedUsername}/setting`}
             className="flex gap-1 items-center"
@@ -47,7 +55,9 @@ export default function UserLayout({
         </footer>
       </nav>
 
-      <div className="lg:w-[85%] xl:w-[88%] w-full"> {children}</div>
+      <div className="lg:w-[85%] mx-auto xl:w-[88%] w-full lg:h-screen overflow-scroll scrollable-box pb-10">
+        {children}
+      </div>
     </section>
   );
 }

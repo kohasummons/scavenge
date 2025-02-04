@@ -129,7 +129,7 @@ const WalletSetup = () => {
                 <div className="flex justify-end">
                   <button
                     type="button"
-                    className="bg-background rounded-3xl py-1 px-2 text-sm font-medium"
+                    className="bg-background rounded-3xl py-1 px-2 text-sm font-semibold"
                   >
                     Disconnect
                   </button>
@@ -145,7 +145,7 @@ const WalletSetup = () => {
                 <div className="flex justify-end">
                   <button
                     type="button"
-                    className="bg-background rounded-3xl py-1 px-2 text-sm font-medium flex gap-2 items-center"
+                    className="bg-background rounded-3xl py-1 px-2 text-sm font-semibold flex gap-2 items-center"
                     onClick={handleModal}
                   >
                     <Plus size={15} />
@@ -158,7 +158,7 @@ const WalletSetup = () => {
 
           {/* Connect Wallet */}
           <div className="bg-white rounded-2xl p-5 space-y-2">
-            <h3 className="font-medium">Connect Wallet</h3>
+            <h3 className="font-semibold">Connect Wallet</h3>
 
             <button
               type="button"
@@ -199,7 +199,7 @@ const WalletSetup = () => {
           >
             <span
               className="bg-black shadow-md shadow-[#8080801A] min-h-[60px] rounded-[40px] min-w-[175px]
-                   text-white gradient-border block"
+                   text-white gradient-border flex items-center justify-center"
             >
               Finish
             </span>
