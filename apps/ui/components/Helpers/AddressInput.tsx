@@ -66,7 +66,7 @@ export default function AddressInput({ tokens, onSave }: AddressInputProps) {
       <button
         onClick={handleSave}
         disabled={!selectedToken || !address}
-        className="px-4 py-2 bg-orange text-sm font-medium text-white 
+        className="px-4 py-2 bg-orange text-sm font-semibold text-white 
         rounded-3xl hover:bg-orange-600 disabled:opacity-50 w-1/5 block"
       >
         Save

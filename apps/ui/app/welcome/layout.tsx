@@ -13,7 +13,7 @@ export default function ConfirmCreationLayout({
     <section className="flex flex-col gap-14 md:flex-row items-start md:h-screen shadow relative">
       <nav
         className="md:h-full md:overflow-hidden w-full md:w-1/4 lg:w-[15%] 2xl:w-[12%] border-r border-r-border 
-          md:px-7 md:pt-14 p-5 fixed z-50 md:bg-transparent md:relative border-b border-b-border"
+          md:px-7 md:pt-14 p-5 fixed z-50 bg-background md:bg-transparent md:relative border-b border-b-border"
       >
         {/* Logo */}
         <Link href={`/`} className="text-center ">

@@ -103,7 +103,7 @@ const LandingPageComponent = () => {
                 >
                   <span
                     className="bg-black shadow-md shadow-[#8080801A] min-h-[60px] rounded-[40px] min-w-[175px]
-                   text-white gradient-border block"
+                   text-white gradient-border flex items-center justify-center"
                   >
                     {submitText}
                   </span>
