@@ -18,7 +18,7 @@ export default function UserLayout({
       {/* Sidebar */}
       <nav
         className="lg:w-[15%] xl:w-[12%] lg:h-screen flex items-center justify-between lg:block lg:overflow-hidden
-       xl:py-10 lg:py-8 py-5 bg-background z-50 lg:px-5 px-3 md:px-5 fixed top-0 lg:border-r 
+       xl:py-10 lg:py-8 py-5 bg-background z-50 lg:px-5 px-3 md:px-5 fixed top-0 lg:border-r
        lg:border-r-border border-b border-b-border lg:relative w-full"
       >
         <Link href={`/`} className="text-center ">
@@ -38,7 +38,10 @@ export default function UserLayout({
             href={`/${savedUsername}/setting`}
             className="flex gap-1 items-center"
           >
-            <GearSix size={25} className="text-gray-primary" />
+            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+              <GearSix size={25} className="text-gray-primary" />
+            </div>
+
             <span className="hidden md:block">Settings</span>
           </Link>
 

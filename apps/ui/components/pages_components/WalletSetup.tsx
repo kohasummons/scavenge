@@ -79,7 +79,7 @@ const WalletSetup = () => {
       <div
         className={`${
           showAddModal
-            ? "h-[50vh] overflow-hidden"
+            ? "h-[50vh] md:h-screen overflow-hidden"
             : "relative h-full overflow-hidden"
         }`}
       >

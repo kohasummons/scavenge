@@ -18,6 +18,7 @@ export default {
         "border-primary": "#F2F2F2",
         "shadow-color": "#8080801A",
         orange: "#F5841F",
+        "input-gray": "#A1A1A1",
       },
       fontFamily: {
         giest: ["var(--font-geist-sans)"],
