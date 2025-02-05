@@ -4,9 +4,6 @@ import type React from "react";
 import Image from "next/image";
 import { useState, type ReactNode, type ChangeEvent } from "react";
 
-// Components
-import SharePaymentLink from "../Modals/SharePaymentLinkModal";
-
 // Icons
 import { CaretUp, CaretDown, Copy } from "@phosphor-icons/react/dist/ssr";
 import {
@@ -25,7 +22,7 @@ interface PayMeCardProps {
   onDrop?: (e: React.DragEvent) => void;
   className?: string;
   isReordering?: boolean;
-  handleModal: () => void;
+  // handleModal: () => void;
 }
 
 interface TokenProp {
@@ -46,7 +43,7 @@ export default function PayMeCard({
   onDragOver,
   onDragLeave,
   onDrop,
-  handleModal,
+  // handleModal,
   className,
   isReordering,
 }: PayMeCardProps) {
@@ -161,11 +158,11 @@ export default function PayMeCard({
 
         <div className="space-y-5">
           {/* Payment setup */}
-          <div className="bg-[#FAFAFA] min-h-[44px] rounded-3xl p-1 flex items-center">
-            <div className="w-3/5 grid grid-cols-4 gap-1">
+          <div className="bg-[#FAFAFA] min-h-[44px] rounded-3xl p-1 flex flex-col md:flex-row items-center gap-3">
+            <div className="lg:w-3/5 w-full grid grid-cols-4 gap-1">
               {/* Token select */}
               <div
-                className="w-14 col-span-1 h-9 bg-white flex gap-1 justify-center items-center rounded-3xl
+                className="col-span-1 h-9 bg-white flex gap-1 justify-center items-center rounded-3xl
                text-gray text-sm relative font-medium cursor-pointer"
                 onClick={handleTokenDrop}
               >
@@ -198,7 +195,7 @@ export default function PayMeCard({
               {availableAmounts?.map((amount, index) => (
                 <button
                   key={index}
-                  className={`rounded-3xl w-14 col-span-1 h-9 font-medium transition-all duration-500 ${
+                  className={`rounded-3xl col-span-1 h-9 font-medium transition-all duration-500 ${
                     activeAmount === amount.id
                       ? "bg-[#000] gradient-border text-white"
                       : "bg-white text-input-gray"
@@ -217,7 +214,7 @@ export default function PayMeCard({
           </div> */}
 
             {/* Input Amount */}
-            <div className="bg-background w-2/5 py-2 text-center rounded-3xl flex items-center justify-center">
+            <div className="bg-background lg:w-2/5 w-full py-2 text-center rounded-3xl flex items-center justify-center">
               <input
                 type="number"
                 id="amount"
@@ -263,7 +260,7 @@ export default function PayMeCard({
               height={24}
               alt="Share icon"
               className="cursor-pointer"
-              onClick={handleModal}
+              // onClick={handleModal}
             />
           </div>
         </div>

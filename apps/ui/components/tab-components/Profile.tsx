@@ -9,7 +9,7 @@ import PayMeCard from "../cards/PayMeCard";
 import QRCodeCard from "../cards/QRCodeCard";
 import MyWalletCard from "../cards/MyWalletCard";
 import FiatCard from "../cards/FiatCard";
-import SharePaymentLink from "../Modals/SharePaymentLinkModal";
+// import SharePaymentLink from "../Modals/SharePaymentLinkModal";
 
 // Icons
 import {
@@ -84,10 +84,10 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
     setIsSaving(false);
   };
 
-  const [ShowShareModal, setShowShareModal] = useState(false);
-  const handleModal = () => {
-    setShowShareModal(!ShowShareModal);
-  };
+  // const [ShowShareModal, setShowShareModal] = useState(false);
+  // const handleModal = () => {
+  //   setShowShareModal(!ShowShareModal);
+  // };
 
   const renderCard = (card: Card, index: number) => {
     const props = {
@@ -99,24 +99,20 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
       className: `mb-4 ${isReordering ? "cursor-move" : ""}`,
     };
 
-    const paymeprops = {
-      draggable: isReordering,
-      onDragStart: (e: React.DragEvent) => handleDragStart(e, index),
-      onDragOver: handleDragOver,
-      onDragLeave: handleDragLeave,
-      onDrop: (e: React.DragEvent) => handleDrop(e, index),
-      className: `mb-4 ${isReordering ? "cursor-move" : ""}`,
-      handleModal: handleModal,
-    };
+    // const paymeprops = {
+    //   draggable: isReordering,
+    //   onDragStart: (e: React.DragEvent) => handleDragStart(e, index),
+    //   onDragOver: handleDragOver,
+    //   onDragLeave: handleDragLeave,
+    //   onDrop: (e: React.DragEvent) => handleDrop(e, index),
+    //   className: `mb-4 ${isReordering ? "cursor-move" : ""}`,
+    //   handleModal: handleModal,
+    // };
 
     switch (card.type) {
       case "pay-me":
         return (
-          <PayMeCard
-            key={card.id}
-            {...paymeprops}
-            isReordering={isReordering}
-          />
+          <PayMeCard key={card.id} {...props} isReordering={isReordering} />
         );
       case "qr-code":
         return (
@@ -138,9 +134,7 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
       <div
         className={`${
           isGrid ? "lg:w-3/4 md:w-4/5 mx-auto md:mr-[10%]" : "md:w-[480px]"
-        }  w-[92%] mx-auto md:pt-10 space-y-10  ${
-          ShowShareModal ? "h-[70vh] md:h-screen overflow-hidden" : ""
-        }`}
+        }  w-[92%] mx-auto md:pt-10 space-y-10  `}
       >
         {/* Header */}
         {isGrid ? (
@@ -337,7 +331,7 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
         </div>
       </div>
 
-      {ShowShareModal && <SharePaymentLink handleClose={handleModal} />}
+      {/* {ShowShareModal && <SharePaymentLink handleClose={handleModal} />} */}
     </>
   );
 };
