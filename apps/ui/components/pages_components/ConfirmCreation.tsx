@@ -183,16 +183,16 @@ md:-translate-y-1/2 md:transform text-center"
             </div>
 
             <motion.button
-              type="submit"
+              type="button"
               className="mx-auto block w-full"
               whileHover={{ scale: 1.1 }} // Scale effect on hover
               whileTap={{ scale: 0.95 }} // Slight shrink on click
               transition={{ type: "spring", stiffness: 300 }} // Smooth spring effect
-              onClick={handleSubmit}
             >
               <span
                 className="bg-black shadow-md shadow-[#8080801A] min-h-[60px] w-full rounded-[40px] 
-                   text-white gradient-border flex items-center justify-center"
+                   text-white gradient-border flex items-center justify-center z-50"
+                onClick={handleSubmit}
               >
                 Let&apos;s go
               </span>
@@ -201,14 +201,14 @@ md:-translate-y-1/2 md:transform text-center"
         </div>
       </div>
 
-      <Image
+      {/* <Image
         src={`/Images/cheers_icon.svg`}
         width={500}
         height={230}
         alt="Cheers Icon"
         className="absolute 
       bottom-10 left-1/2 -translate-x-1/2 transform z-50 hidden md:block"
-      />
+      /> */}
     </div>
   );
 };

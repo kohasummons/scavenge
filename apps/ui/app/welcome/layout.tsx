@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 
 // Icons
 import { BillaIcon } from "@/components/icons";
@@ -10,7 +10,7 @@ export default function ConfirmCreationLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex flex-col gap-14 md:flex-row items-start md:h-screen shadow relative">
+    <section className="flex flex-col gap-14 md:flex-row items-start md:h-screen relative">
       <nav
         className="md:h-full md:overflow-hidden w-full md:w-1/4 lg:w-[15%] 2xl:w-[12%] border-r border-r-border 
           md:px-7 md:pt-14 p-5 fixed z-50 bg-background md:bg-transparent md:relative border-b border-b-border"
@@ -35,14 +35,14 @@ export default function ConfirmCreationLayout({
         <p>©2025 Billa App</p>
       </footer>
 
-      <Image
+      {/* <Image
         src={`/Images/cheers_icon.svg`}
         width={500}
         height={230}
         alt="Cheers Icon"
         className="absolute 
       bottom-10 left-1/2 -translate-x-1/2 transform z-50 lg:hidden"
-      />
+      /> */}
     </section>
   );
 }
