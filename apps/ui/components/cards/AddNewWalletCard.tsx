@@ -37,7 +37,6 @@ const AddNewWalletCard = ({
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
-  const submitText = isLoading ? "Creating profile..." : "Create profile";
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -75,6 +74,7 @@ const AddNewWalletCard = ({
   };
   return (
     <div className="bg-white rounded-2xl p-5 space-y-7">
+      <p>{error}</p>
       {/* Header */}
       <div className="flex justify-between items-center">
         {showBankDetailsForm ? (
@@ -119,6 +119,7 @@ const AddNewWalletCard = ({
               <button
                 className="px-3 py-2 bg-[#000] text-white font-semibold rounded-3xl
               shadow-md shadow-shadow-color text-sm gradient-border"
+                onClick={handleShowNewWalletCard}
               >
                 Save
               </button>

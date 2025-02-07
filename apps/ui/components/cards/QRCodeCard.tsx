@@ -87,11 +87,7 @@ export default function QRCodeCard({
       <div className="flex justify-between items-start">
         {/* QR Code */}
         <div className="w-16 h-16">
-          <QRCode
-            value="https://example.com"
-            size={64}
-            className="w-full h-auto"
-          />
+          <QRCode value={value} size={64} className="w-full h-auto" />
         </div>
 
         {/* Tokens */}

@@ -19,14 +19,7 @@ import {
   SquaresFour,
   ListDashes,
   XLogo,
-  X,
-  Bank,
 } from "@phosphor-icons/react/dist/ssr";
-import {
-  WalletMetamask,
-  WalletCoinbase,
-  WalletPhantom,
-} from "@web3icons/react";
 
 export interface Card {
   id: string;
@@ -143,6 +136,9 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
     setShowNewWalletCard(!showNewWalletCard);
   };
 
+  // This value is returned from backend
+  const [isLinkExpire, setIsLinkExpire] = useState<boolean>(true);
+
   return (
     <>
       <div
@@ -165,29 +161,77 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
               </p>
             </div>
 
-            <div className="lg:w-1/4 mx-auto space-y-2 w-3/4 md:w-1/2">
-              <div className="drag-shadow p-1">
-                <button
-                  type="button"
-                  className="bg-white rounded-3xl py-2 px-5 flex justify-between items-center w-full -mb-[3px]"
-                >
-                  <span>
-                    billa.gg/<span className="text-gray">{savedUsername}</span>
-                  </span>
+            {isLinkExpire ? (
+              <div className="bg-background rounded-3xl p-1 lg:w-1/4 mx-auto space-y-2 w-3/4 md:w-1/2">
+                <div className="w-full">
+                  <div className="drag-shadow p-1">
+                    <button
+                      type="button"
+                      className="bg-white rounded-3xl py-2 px-5 flex justify-between items-center w-full -mb-[3px]"
+                    >
+                      <span>
+                        billa.gg/
+                        <span className="text-gray">{savedUsername}</span>
+                      </span>
 
-                  <Image
-                    src={`/Images/material-symbols_share.svg`}
-                    width={20}
-                    height={20}
-                    alt="Share icon"
-                  />
-                </button>
+                      <Image
+                        src={`/Images/material-symbols_share.svg`}
+                        width={20}
+                        height={20}
+                        alt="Share icon"
+                      />
+                    </button>
+                  </div>
+
+                  <p className="text-center w-full text-gray text-xs">
+                    Tab to share
+                  </p>
+                </div>
+
+                <div className="flex justify-center items-center gap-3 text-xs">
+                  <p>Your link will expire in 2 days.</p>
+
+                  <button
+                    type="button"
+                    className="flex gap-1 items-center text-orange font-semibold"
+                    onClick={() => setIsLinkExpire(false)}
+                  >
+                    <span>Claim Now</span>
+                    <Image
+                      src={`/Images/CaretRightIcon.svg`}
+                      width={6}
+                      height={6}
+                      alt="Caret Right"
+                    />
+                  </button>
+                </div>
               </div>
+            ) : (
+              <div className="lg:w-1/4 mx-auto space-y-2 w-3/4 md:w-1/2">
+                <div className="drag-shadow p-1">
+                  <button
+                    type="button"
+                    className="bg-white rounded-3xl py-2 px-5 flex justify-between items-center w-full -mb-[3px]"
+                  >
+                    <span>
+                      billa.gg/
+                      <span className="text-gray">{savedUsername}</span>
+                    </span>
 
-              <p className="text-center w-full text-gray text-xs">
-                Tab to share
-              </p>
-            </div>
+                    <Image
+                      src={`/Images/material-symbols_share.svg`}
+                      width={20}
+                      height={20}
+                      alt="Share icon"
+                    />
+                  </button>
+                </div>
+
+                <p className="text-center w-full text-gray text-xs">
+                  Tab to share
+                </p>
+              </div>
+            )}
           </div>
         ) : (
           <div className="bg-white rounded-2xl p-5 space-y-5">
@@ -204,32 +248,82 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
             </div>
 
             {/* Profile CTAs */}
-            <div className="drag-shadow p-1">
-              <button
-                type="button"
-                className="bg-white rounded-3xl py-2 px-5 drag-shadow flex justify-between items-center w-full"
-              >
-                <p>
-                  billa.gg/<span className="text-gray">{savedUsername}</span>
-                </p>
+            {isLinkExpire ? (
+              <div className="bg-background rounded-3xl p-1 space-y-2">
+                <div className="drag-shadow p-[2px]">
+                  <button
+                    type="button"
+                    className="bg-white rounded-3xl py-2 px-5 drag-shadow flex justify-between items-center w-full"
+                  >
+                    <p>
+                      billa.gg/
+                      <span className="text-gray">{savedUsername}</span>
+                    </p>
 
-                <div className="flex gap-1 items-center">
-                  <p className="text-xs text-[#C4C4C4]">Tap to share</p>
-                  <Image
-                    src={`/Images/material-symbols_share.svg`}
-                    width={20}
-                    height={20}
-                    alt="Share icon"
-                  />
-                  <Image
-                    src={`/Images/mage_qr-code-fill.svg`}
-                    width={20}
-                    height={20}
-                    alt="QR icon"
-                  />
+                    <div className="flex gap-1 items-center">
+                      <p className="text-xs text-[#C4C4C4]">Tap to share</p>
+                      <Image
+                        src={`/Images/material-symbols_share.svg`}
+                        width={20}
+                        height={20}
+                        alt="Share icon"
+                      />
+                      <Image
+                        src={`/Images/mage_qr-code-fill.svg`}
+                        width={20}
+                        height={20}
+                        alt="QR icon"
+                      />
+                    </div>
+                  </button>
                 </div>
-              </button>
-            </div>
+
+                <div className="flex justify-center items-center gap-3 text-xs">
+                  <p>Your link will expire in 2 days.</p>
+
+                  <button
+                    type="button"
+                    className="flex gap-1 items-center text-orange font-semibold"
+                    onClick={() => setIsLinkExpire(false)}
+                  >
+                    <span>Claim Now</span>
+                    <Image
+                      src={`/Images/CaretRightIcon.svg`}
+                      width={6}
+                      height={6}
+                      alt="Caret Right"
+                    />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="drag-shadow p-1">
+                <button
+                  type="button"
+                  className="bg-white rounded-3xl py-2 px-5 drag-shadow flex justify-between items-center w-full"
+                >
+                  <p>
+                    billa.gg/<span className="text-gray">{savedUsername}</span>
+                  </p>
+
+                  <div className="flex gap-1 items-center">
+                    <p className="text-xs text-[#C4C4C4]">Tap to share</p>
+                    <Image
+                      src={`/Images/material-symbols_share.svg`}
+                      width={20}
+                      height={20}
+                      alt="Share icon"
+                    />
+                    <Image
+                      src={`/Images/mage_qr-code-fill.svg`}
+                      width={20}
+                      height={20}
+                      alt="QR icon"
+                    />
+                  </div>
+                </button>
+              </div>
+            )}
           </div>
         )}
 

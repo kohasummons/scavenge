@@ -36,15 +36,15 @@ export default function MyWalletCard({
   const wallets: WalletProp[] = [
     {
       address: "0x4037D2daa35420Ee4A3b19F7c4137e1b36538f54",
-      icon: <TokenBTC variant="branded" size="12" />,
+      icon: <TokenBTC variant="branded" size="24" />,
     },
     {
       address: "0x4037D2daa35420Ee4A3b19F7c4137e1b36538f54",
-      icon: <TokenETH variant="branded" size="12" />,
+      icon: <TokenETH variant="branded" size="24" />,
     },
     {
       address: "0x4037D2daa35420Ee4A3b19F7c4137e1b36538f54",
-      icon: <TokenUSDT variant="branded" size="12" />,
+      icon: <TokenUSDT variant="branded" size="24" />,
     },
   ];
 
