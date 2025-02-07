@@ -162,7 +162,8 @@ const WalletSetup = () => {
 
             <button
               type="button"
-              className="bg-white rounded-lg flex gap-1 items-center w-full p-3 shadow-md shadow-shadow-color"
+              className="bg-white rounded-lg flex gap-1 items-center w-full p-3 shadow-md shadow-shadow-color border-[0.5px]
+                     border-shadow-color border-opacity-10"
             >
               <WalletMetamask variant="branded" size="24" />
               <span>Metamask</span>
@@ -170,7 +171,8 @@ const WalletSetup = () => {
 
             <button
               type="button"
-              className="bg-white rounded-lg flex gap-1 items-center w-full p-3 shadow-md shadow-shadow-color 
+              className="bg-white rounded-lg flex gap-1 items-center w-full p-3 shadow-md shadow-shadow-color border-[0.5px]
+                     border-shadow-color border-opacity-10 
             opacity-50 cursor-not-allowed"
               disabled
             >
@@ -180,7 +182,8 @@ const WalletSetup = () => {
 
             <button
               type="button"
-              className="bg-white rounded-lg flex gap-1 items-center w-full p-3 shadow-md shadow-shadow-color 
+              className="bg-white rounded-lg flex gap-1 items-center w-full p-3 shadow-md shadow-shadow-color border-[0.5px]
+                     border-shadow-color border-opacity-10 
             opacity-50 cursor-not-allowed"
               disabled
             >

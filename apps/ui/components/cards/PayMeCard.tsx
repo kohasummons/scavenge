@@ -150,7 +150,7 @@ export default function PayMeCard({
         onDragOver={onDragOver}
         onDragLeave={onDragLeave}
         onDrop={onDrop}
-        className={`bg-white rounded-2xl p-5 space-y-5 ${
+        className={`bg-white rounded-2xl p-5 space-y-5 md:col-span-2 lg:col-span-1 ${
           isReordering ? "border border-[#F5841F] drag-shadow" : ""
         } ${className} `}
       >

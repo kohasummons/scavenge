@@ -9,6 +9,7 @@ import PayMeCard from "../cards/PayMeCard";
 import QRCodeCard from "../cards/QRCodeCard";
 import MyWalletCard from "../cards/MyWalletCard";
 import FiatCard from "../cards/FiatCard";
+import AddNewWalletCard from "../cards/AddNewWalletCard";
 // import SharePaymentLink from "../Modals/SharePaymentLinkModal";
 
 // Icons
@@ -18,7 +19,14 @@ import {
   SquaresFour,
   ListDashes,
   XLogo,
+  X,
+  Bank,
 } from "@phosphor-icons/react/dist/ssr";
+import {
+  WalletMetamask,
+  WalletCoinbase,
+  WalletPhantom,
+} from "@web3icons/react";
 
 export interface Card {
   id: string;
@@ -129,6 +137,12 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
     }
   };
 
+  // Handle new wallet and fiat
+  const [showNewWalletCard, setShowNewWalletCard] = useState<boolean>(false);
+  const handleShowNewWalletCard = () => {
+    setShowNewWalletCard(!showNewWalletCard);
+  };
+
   return (
     <>
       <div
@@ -220,7 +234,7 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
         )}
 
         <div
-          className={`grid md:grid-cols-3 grid-cols-2 ${
+          className={`grid md:grid-cols-2 grid-cols-2 ${
             isGrid ? "md:w-1/2 mx-auto" : ""
           } gap-4`}
         >
@@ -277,7 +291,12 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
                 </button>
                 <button
                   type="button"
-                  className="px-3 py-2 bg-white font-semibold rounded-3xl shadow-md shadow-shadow-color text-sm flex gap-2 items-center"
+                  className={`px-3 py-2 bg-white font-semibold rounded-3xl shadow-md shadow-shadow-color 
+                  text-sm flex gap-2 items-center ${
+                    showNewWalletCard ? "opacity-30 cursor-not-allowed" : ""
+                  }`}
+                  onClick={handleShowNewWalletCard}
+                  disabled={showNewWalletCard}
                 >
                   <Plus size={15} className="hidden md:block" />
                   New Wallet
@@ -314,19 +333,50 @@ const ProfileTab = ({ initialCards }: ProfileProps) => {
             </div>
           )}
 
-          {/* Cards */}
-          {isGrid ? (
-            <div className="grid md:grid-cols-2 gap-4">
-              {cards.map((card, index) => renderCard(card, index))}
-            </div>
+          {/* Page content */}
+          {showNewWalletCard ? (
+            <>
+              {/* Add new wallet card */}
+              <AddNewWalletCard
+                handleShowNewWalletCard={handleShowNewWalletCard}
+              />
+
+              {/* Cards */}
+              {isGrid ? (
+                <div className="grid md:grid-cols-2 gap-4">
+                  {cards
+                    .slice(2, 4)
+                    .map((card, index) => renderCard(card, index))}
+                </div>
+              ) : (
+                <div
+                  className={`space-y-4 ${
+                    isReordering ? "bg-[#EEEEEE] rounded-2xl p-2" : ""
+                  }`}
+                >
+                  {cards
+                    .slice(2, 4)
+                    .map((card, index) => renderCard(card, index))}
+                </div>
+              )}
+            </>
           ) : (
-            <div
-              className={`space-y-4 ${
-                isReordering ? "bg-[#EEEEEE] rounded-2xl p-2" : ""
-              }`}
-            >
-              {cards.map((card, index) => renderCard(card, index))}
-            </div>
+            <>
+              {/* Cards */}
+              {isGrid ? (
+                <div className="grid md:grid-cols-2 gap-4">
+                  {cards.map((card, index) => renderCard(card, index))}
+                </div>
+              ) : (
+                <div
+                  className={`space-y-4 ${
+                    isReordering ? "bg-[#EEEEEE] rounded-2xl p-2" : ""
+                  }`}
+                >
+                  {cards.map((card, index) => renderCard(card, index))}
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
