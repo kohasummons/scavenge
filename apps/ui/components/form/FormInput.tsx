@@ -1,21 +1,31 @@
-import React from 'react'
+import React from "react";
 
 interface FormInputProps {
-  label: string
-  type: string
-  name: string
-  placeholder: string
-  value: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  label: string;
+  type: string;
+  name: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FormInput = ({ label, name, placeholder, type, value, onChange }: FormInputProps) => {
+const FormInput = ({
+  label,
+  name,
+  placeholder,
+  type,
+  value,
+  onChange,
+}: FormInputProps) => {
   return (
     <div className="space-y-1">
       <label htmlFor="full_name" className="block font-semibold">
         {label}
       </label>
-      <div className="rounded-3xl bg-white shadow-md shadow-[#8080801A] p-3 ">
+      <div
+        className="rounded-3xl bg-white shadow-md shadow-[#8080801A] p-3 border-[0.5px]
+                     border-shadow-color border-opacity-10"
+      >
         <input
           type={type}
           name={name}
@@ -27,7 +37,7 @@ const FormInput = ({ label, name, placeholder, type, value, onChange }: FormInpu
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FormInput
+export default FormInput;
