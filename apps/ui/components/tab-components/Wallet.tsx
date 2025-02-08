@@ -126,7 +126,7 @@ const WalletTab = () => {
     };
 
     getTransactions();
-  }, [selectedToken.abbr]);
+  }, [selectedToken.abbr, fetchTransactions]);
 
   // Available wallet
   const available_wallet: {
@@ -158,7 +158,7 @@ const WalletTab = () => {
   };
 
   return (
-    <div className="w-[92%] mx-auto md:pt-10 space-y-10 md:w-[480px] relative">
+    <div className="w-[92%] mx-auto space-y-10 md:w-[480px] relative">
       <div className="flex items-center gap-2 md:hidden">
         {available_wallet?.map((wallet, index) => (
           <div key={index} className="flex gap-2 items-start">

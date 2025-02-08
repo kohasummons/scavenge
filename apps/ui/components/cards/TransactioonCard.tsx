@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUp } from "@phosphor-icons/react/dist/ssr";
+import { ArrowDown } from "@phosphor-icons/react/dist/ssr";
 import type { Transaction } from "../tab-components/Wallet";
 
 interface TransactionCardProps {
