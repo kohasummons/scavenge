@@ -67,7 +67,7 @@ const ConfirmCreation = () => {
   };
 
   return (
-    <div className="relative h-full overflow-hidden -ml-[5%]">
+    <div className="relative h-full overflow-hidden md:-ml-[5%]">
       {/* Content */}
       <div
         className="space-y-20 md:w-[341px] w-full mx-auto md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 

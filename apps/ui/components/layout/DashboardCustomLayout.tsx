@@ -35,7 +35,7 @@ const DashboardCustomLayout = ({ children }: { children: React.ReactNode }) => {
       /> */}
       <div>
         <nav
-          className="bg-[#F1F1F1] z-50 rounded-3xl max-w-[355px] p-2 mx-auto flex items-center justify-between fixed 
+          className="bg-[#F1F1F1] z-50 rounded-3xl max-w-[355px] p-2 mx-auto flex gap-2 items-center justify-between fixed 
       top-28 lg:top-10 xl:top-14 left-1/2 -translate-x-1/2 transform"
         >
           {navItems.map((item, index) => (
@@ -44,7 +44,7 @@ const DashboardCustomLayout = ({ children }: { children: React.ReactNode }) => {
               key={index}
               className={`${
                 currentTab === item.name ? "bg-white" : ""
-              } rounded-3xl p-2 flex items-center gap-2 font-semibold transition-all duration-500`}
+              } rounded-3xl py-2 px-3 flex items-center gap-2 font-semibold transition-all duration-500`}
             >
               {item.icon}
               <p className="capitalize">{item.name}</p>

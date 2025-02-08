@@ -54,11 +54,7 @@ export default function PayMeCard({
   });
 
   // Select token functionality
-  const tokens: {
-    name: string;
-    icon: ReactNode;
-    abbr: string;
-  }[] = [
+  const tokens: TokenProp[] = [
     {
       name: "Bitcoin",
       icon: <TokenBTC variant="branded" size="24" />,
