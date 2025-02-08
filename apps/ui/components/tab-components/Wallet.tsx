@@ -112,22 +112,21 @@ const WalletTab = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hideAmounts, setHideAmounts] = useState<boolean>(false);
-  console.log(transactions);
 
-  // useEffect(() => {
-  //   const getTransactions = async () => {
-  //     setIsLoading(true);
-  //     try {
-  //       const data = await fetchTransactions(selectedToken.abbr);
-  //       setTransactions(data);
-  //     } catch (error) {
-  //       console.error("Failed to fetch transactions:", error);
-  //     }
-  //     setIsLoading(false);
-  //   };
+  useEffect(() => {
+    const getTransactions = async () => {
+      setIsLoading(true);
+      try {
+        const data = await fetchTransactions(selectedToken.abbr);
+        setTransactions(data);
+      } catch (error) {
+        console.error("Failed to fetch transactions:", error);
+      }
+      setIsLoading(false);
+    };
 
-  //   getTransactions();
-  // }, [selectedToken.abbr]);
+    getTransactions();
+  }, [selectedToken.abbr]);
 
   // Available wallet
   const available_wallet: {
@@ -160,6 +159,33 @@ const WalletTab = () => {
 
   return (
     <div className="w-[92%] mx-auto md:pt-10 space-y-10 md:w-[480px] relative">
+      <div className="flex items-center gap-2 md:hidden">
+        {available_wallet?.map((wallet, index) => (
+          <div key={index} className="flex gap-2 items-start">
+            <span className="text-gray-primary text-xs">{wallet.id}</span>
+
+            <span
+              className={`bg-white flex cursor-pointer ${
+                wallet.isMainWallet ? "justify-between" : ""
+              } gap-1  items-center box-shadow rounded-xl p-2 text-[8px] w-[80px] ${
+                wallet.id === activeWallet ? "border-2 border-black" : ""
+              }`}
+              onClick={() => handleSelectWallet(wallet.id)}
+            >
+              {wallet.icon}
+              {truncateAddress(wallet.wallet_addresss, 2)}
+              {wallet.isMainWallet && (
+                <Image
+                  src={`/Images/flowbite_award-solid.svg`}
+                  width={10}
+                  height={10}
+                  alt="Award icon"
+                />
+              )}
+            </span>
+          </div>
+        ))}
+      </div>
       {/* Main wallet */}
       <div className="p-5 rounded-2xl bg-white space-y-5">
         {/* Header */}
@@ -257,7 +283,8 @@ const WalletTab = () => {
           </button>
         </div>
 
-        {/* isLoading ? (
+        {/* Trans */}
+        {isLoading ? (
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
               <div
@@ -266,10 +293,7 @@ const WalletTab = () => {
               />
             ))}
           </div>
-        ) : */}
-
-        {/* Trans */}
-        {transactions.length > 0 ? (
+        ) : transactions.length > 0 ? (
           <div className="space-y-4">
             {transactions.map((transaction) => (
               <TransactionCard
@@ -297,7 +321,10 @@ const WalletTab = () => {
       </div>
 
       {/* Wallet list */}
-      <div className="absolute -left-28 top-0 space-y-3">
+      <div
+        className="hidden md:block md:fixed 2xl:absolute 2xl:-left-28 2xl:top-0 
+       md:left-10 md:top-52 lg:left-48 lg:top-32 xl:left-72 xl:top-36 space-y-3"
+      >
         {available_wallet?.map((wallet, index) => (
           <div key={index} className="flex gap-2 items-start">
             <span className="text-gray-primary text-xs">{wallet.id}</span>

@@ -62,7 +62,6 @@ const AddNewWalletCard = ({
 
       //   const data = await response.json()
       setTimeout(() => {
-        console.log("Profile created:", formData);
         setIsLoading(false);
         handleBankDetailsForm();
       }, 2000);
