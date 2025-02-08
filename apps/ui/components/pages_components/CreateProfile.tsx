@@ -62,7 +62,6 @@ const CreateProfileComponent = () => {
 
       //   const data = await response.json()
       setTimeout(() => {
-        console.log("Profile created:", formData);
         setIsLoading(false);
         router.push("/claim-username");
       }, 2000);
