@@ -1,6 +1,6 @@
 // library imports
 import Image from "next/image";
-import { useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { truncateAddress } from "@/lib/utils";
 
 // Components
@@ -103,11 +103,16 @@ const WalletTab = () => {
     USDC: generateTransactions("USDC"),
   };
 
-  const fetchTransactions = async (token: string): Promise<Transaction[]> => {
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 500));
-    return mockTransactions[token] || [];
-  };
+  // Put fetchTransactions in useCallbacb
+
+  const fetchTransactions = useCallback(
+    async (token: string): Promise<Transaction[]> => {
+      // Simulate API delay
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      return mockTransactions[token] || [];
+    },
+    []
+  );
 
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -158,8 +163,8 @@ const WalletTab = () => {
   };
 
   return (
-    <div className="w-[92%] mx-auto space-y-10 md:w-[480px] relative">
-      <div className="flex items-center gap-2 md:hidden">
+    <div className="w-[92%] mx-auto md:space-y-10 md:w-[600px] relative">
+      {/* <div className="flex items-center gap-2 md:hidden">
         {available_wallet?.map((wallet, index) => (
           <div key={index} className="flex gap-2 items-start">
             <span className="text-gray-primary text-xs">{wallet.id}</span>
@@ -185,171 +190,179 @@ const WalletTab = () => {
             </span>
           </div>
         ))}
-      </div>
-      {/* Main wallet */}
-      <div className="p-5 rounded-2xl bg-white space-y-5">
-        {/* Header */}
-        <div className="flex items-center justify-between">
-          <h2 className="font-semibold">Main Wallet</h2>
+      </div> */}
 
-          {available_wallet[activeWallet - 1].isMainWallet ? (
-            <span className="flex items-center gap-2 p-2 rounded-3xl border border-orange">
-              <Image
-                src={`/Images/flowbite_award-solid.svg`}
-                width={16}
-                height={16}
-                alt="Award icon"
-              />
+      <div className="flex flex-col md:flex-row gap-3 items-start xl:-ml-20 -mt-5 md:mt-0">
+        {/* Wallet list */}
+        <div className="md:space-y-3 grid grid-cols-2 gap-3 md:block">
+          {available_wallet?.map((wallet, index) => (
+            <div key={index} className="flex gap-2 items-start">
+              <span className="text-gray-primary text-xs">{wallet.id}</span>
 
-              <span className="text-sm font-semibold text-sm">Main Wallet</span>
-            </span>
-          ) : (
-            <button
-              type="button"
-              className="p-2 rounded-3xl bg-orange text-white"
-            >
-              Set as Main Wallet
-            </button>
-          )}
+              <span
+                className={`bg-white flex cursor-pointer ${
+                  wallet.isMainWallet ? "justify-between" : ""
+                } gap-1  items-center box-shadow rounded-xl p-2 text-[8px] w-[80px] ${
+                  wallet.id === activeWallet ? "border-2 border-black" : ""
+                }`}
+                onClick={() => handleSelectWallet(wallet.id)}
+              >
+                {wallet.icon}
+                {truncateAddress(wallet.wallet_addresss, 2)}
+                {wallet.isMainWallet && (
+                  <Image
+                    src={`/Images/flowbite_award-solid.svg`}
+                    width={10}
+                    height={10}
+                    alt="Award icon"
+                  />
+                )}
+              </span>
+            </div>
+          ))}
         </div>
 
-        {/* Wallet */}
-        <div className="p-3 flex items-center justify-between box-shadow rounded-lg">
-          <div className="space-y-2">
-            <div className="flex gap-1 items-center">
-              <WalletMetamask variant="branded" size="24" />
-              <span>{available_wallet[activeWallet - 1]?.name}</span>
+        <div className="md:w-4/5 w-full space-y-10">
+          {/* Main wallet */}
+          <div className="p-5 rounded-2xl bg-white space-y-5">
+            {/* Header */}
+            <div className="flex items-center justify-between">
+              <h2 className="font-semibold">Main Wallet</h2>
+
+              {available_wallet[activeWallet - 1].isMainWallet ? (
+                <span className="flex items-center gap-2 p-2 rounded-3xl border border-orange">
+                  <Image
+                    src={`/Images/flowbite_award-solid.svg`}
+                    width={16}
+                    height={16}
+                    alt="Award icon"
+                  />
+
+                  <span className="font-semibold text-sm">Main Wallet</span>
+                </span>
+              ) : (
+                <button
+                  type="button"
+                  className="p-2 rounded-3xl bg-orange text-white"
+                >
+                  Set as Main Wallet
+                </button>
+              )}
             </div>
 
-            <p className="text-xs text-gray-primary">
-              {available_wallet[activeWallet - 1]?.wallet_addresss}
-            </p>
+            {/* Wallet */}
+            <div className="p-3 flex items-center justify-between box-shadow rounded-lg">
+              <div className="space-y-2">
+                <div className="flex gap-1 items-center">
+                  <WalletMetamask variant="branded" size="24" />
+                  <span>{available_wallet[activeWallet - 1]?.name}</span>
+                </div>
+
+                <p className="text-xs text-gray-primary">
+                  {available_wallet[activeWallet - 1]?.wallet_addresss}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                className="bg-white flex items-center justify-center w-9 h-9 rounded-full box-shadow"
+              >
+                <Image
+                  src={`/Images/mage_qr-code-fill1.svg`}
+                  width={20}
+                  height={20}
+                  alt="QR"
+                />
+              </button>
+            </div>
           </div>
 
-          <button
-            type="button"
-            className="bg-white flex items-center justify-center w-9 h-9 rounded-full box-shadow"
-          >
-            <Image
-              src={`/Images/mage_qr-code-fill1.svg`}
-              width={20}
-              height={20}
-              alt="QR"
-            />
-          </button>
-        </div>
-      </div>
+          {/* Transactions */}
+          <div className="space-y-5">
+            {/* Header */}
+            <div className="flex items-center justify-between font-semibold">
+              <h3>Transactions</h3>
 
-      {/* Transactions */}
-      <div className="space-y-5">
-        {/* Header */}
-        <div className="flex items-center justify-between font-semibold">
-          <h3>Transactions</h3>
-
-          <div
-            className="col-span-1 min-w-[104px] h-9 bg-white flex gap-1 justify-between items-center rounded-3xl
+              <div
+                className="col-span-1 min-w-[104px] h-9 bg-white flex gap-1 justify-between items-center rounded-3xl
                relative font-medium cursor-pointer px-3"
-            onClick={handleTokenDrop}
-          >
-            <span className="flex items-center font-semibold">
-              {selectedToken?.icon}
-              {selectedToken?.abbr}
-            </span>
+                onClick={handleTokenDrop}
+              >
+                <span className="flex items-center font-semibold">
+                  {selectedToken?.icon}
+                  {selectedToken?.abbr}
+                </span>
 
-            {showTokenDrop ? <CaretUp size={20} /> : <CaretDown size={20} />}
+                {showTokenDrop ? (
+                  <CaretUp size={20} />
+                ) : (
+                  <CaretDown size={20} />
+                )}
 
-            {showTokenDrop && (
-              <div className="absolute top-10 left-0 space-y-1 bg-white p-3 rounded-2xl shadow-lg shadow-shadow-color">
-                {tokens?.map((token, index) => (
-                  <div
-                    key={index}
-                    className="flex gap-1 items-center p-1 rounded-lg hover:bg-background"
-                    onClick={() => handleSelectToken(token)}
-                  >
-                    {token.icon}
-                    <p className="text-sm">{token.abbr}</p>
+                {showTokenDrop && (
+                  <div className="absolute top-10 left-0 space-y-1 bg-white p-3 rounded-2xl shadow-lg shadow-shadow-color">
+                    {tokens?.map((token, index) => (
+                      <div
+                        key={index}
+                        className="flex gap-1 items-center p-1 rounded-lg hover:bg-background"
+                        onClick={() => handleSelectToken(token)}
+                      >
+                        {token.icon}
+                        <p className="text-sm">{token.abbr}</p>
+                      </div>
+                    ))}
                   </div>
+                )}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setHideAmounts(!hideAmounts)}
+                className={`${
+                  transactions.length <= 0 ? "text-[#C4C4C4]" : ""
+                }`}
+              >
+                {hideAmounts ? "Show figures" : "Hide figures"}{" "}
+              </button>
+            </div>
+
+            {/* Trans */}
+            {isLoading ? (
+              <div className="space-y-4">
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="h-24 bg-gray-100 animate-pulse rounded-lg"
+                  />
                 ))}
+              </div>
+            ) : transactions.length > 0 ? (
+              <div className="space-y-4">
+                {transactions.map((transaction) => (
+                  <TransactionCard
+                    key={transaction.id}
+                    transaction={transaction}
+                    hidden={hideAmounts}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8 text-gray-500">
+                <Image
+                  src={`/Images/iconoir_wallet-solid.svg`}
+                  width={128}
+                  height={128}
+                  alt="iconoir_wallet-solid"
+                  className="mx-auto"
+                />
+                <p className="text-[#C4C4C4] font-semibold">
+                  {" "}
+                  No transactions yet for {selectedToken.abbr}
+                </p>
               </div>
             )}
           </div>
-
-          <button
-            type="button"
-            onClick={() => setHideAmounts(!hideAmounts)}
-            className={`${transactions.length <= 0 ? "text-[#C4C4C4]" : ""}`}
-          >
-            {hideAmounts ? "Show figures" : "Hide figures"}{" "}
-          </button>
         </div>
-
-        {/* Trans */}
-        {isLoading ? (
-          <div className="space-y-4">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="h-24 bg-gray-100 animate-pulse rounded-lg"
-              />
-            ))}
-          </div>
-        ) : transactions.length > 0 ? (
-          <div className="space-y-4">
-            {transactions.map((transaction) => (
-              <TransactionCard
-                key={transaction.id}
-                transaction={transaction}
-                hidden={hideAmounts}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-8 text-gray-500">
-            <Image
-              src={`/Images/iconoir_wallet-solid.svg`}
-              width={128}
-              height={128}
-              alt="iconoir_wallet-solid"
-              className="mx-auto"
-            />
-            <p className="text-[#C4C4C4] font-semibold">
-              {" "}
-              No transactions yet for {selectedToken.abbr}
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Wallet list */}
-      <div
-        className="hidden md:block md:fixed 2xl:absolute 2xl:-left-28 2xl:top-0 
-       md:left-10 md:top-52 lg:left-48 lg:top-32 xl:left-72 xl:top-36 space-y-3"
-      >
-        {available_wallet?.map((wallet, index) => (
-          <div key={index} className="flex gap-2 items-start">
-            <span className="text-gray-primary text-xs">{wallet.id}</span>
-
-            <span
-              className={`bg-white flex cursor-pointer ${
-                wallet.isMainWallet ? "justify-between" : ""
-              } gap-1  items-center box-shadow rounded-xl p-2 text-[8px] w-[80px] ${
-                wallet.id === activeWallet ? "border-2 border-black" : ""
-              }`}
-              onClick={() => handleSelectWallet(wallet.id)}
-            >
-              {wallet.icon}
-              {truncateAddress(wallet.wallet_addresss, 2)}
-              {wallet.isMainWallet && (
-                <Image
-                  src={`/Images/flowbite_award-solid.svg`}
-                  width={10}
-                  height={10}
-                  alt="Award icon"
-                />
-              )}
-            </span>
-          </div>
-        ))}
       </div>
     </div>
   );
