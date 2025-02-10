@@ -95,18 +95,18 @@ const WalletTab = () => {
     }));
   };
 
-  const mockTransactions: Record<string, Transaction[]> = {
-    BTC: generateTransactions("BTC"),
-    ETH: generateTransactions("ETH"),
-    USDT: generateTransactions("USDT"),
-    BNB: generateTransactions("BNB"),
-    USDC: generateTransactions("USDC"),
-  };
-
   // Put fetchTransactions in useCallbacb
 
   const fetchTransactions = useCallback(
     async (token: string): Promise<Transaction[]> => {
+      const mockTransactions: Record<string, Transaction[]> = {
+        BTC: generateTransactions("BTC"),
+        ETH: generateTransactions("ETH"),
+        USDT: generateTransactions("USDT"),
+        BNB: generateTransactions("BNB"),
+        USDC: generateTransactions("USDC"),
+      };
+
       // Simulate API delay
       await new Promise((resolve) => setTimeout(resolve, 500));
       return mockTransactions[token] || [];
