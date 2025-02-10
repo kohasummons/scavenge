@@ -21,17 +21,6 @@ interface WalletProp {
 
 import type React from "react";
 
-interface PayMeCardProps {
-  draggable?: boolean;
-  onDragStart?: (e: React.DragEvent) => void;
-  onDragOver?: (e: React.DragEvent) => void;
-  onDragLeave?: (e: React.DragEvent) => void;
-  onDrop?: (e: React.DragEvent) => void;
-  className?: string;
-  isReordering?: boolean;
-  // handleModal: () => void;
-}
-
 interface TokenProp {
   icon: ReactNode;
   abbr: string;
@@ -121,23 +110,6 @@ const VisitorPage = () => {
       token_abbr: token.abbr.toLowerCase(),
     }));
     handleTokenDrop();
-  };
-
-  // Select Amount functionality
-  const availableAmounts: {
-    id: number;
-    amount: number;
-  }[] = [
-    { id: 0, amount: 5 },
-    { id: 1, amount: 10 },
-    { id: 2, amount: 15 },
-  ];
-
-  const [activeAmount, setActiveAmount] = useState<number>(0);
-  const handleSelectAmount = (amount: number, id: number): void => {
-    setActiveAmount(amount);
-    setActiveAmount(id);
-    setFormData((prev) => ({ ...prev, amount: amount }));
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
